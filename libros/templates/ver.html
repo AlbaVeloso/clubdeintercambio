@@ -6,5 +6,20 @@
     <p>{{ libro.descripcion }}</p>
     <img src="{{ libro.imagen.url }}" alt="" width="200">
     <hr>
+    <!--mostrar los prestamos-->
+    <h4>Prestamos</h4>
+    <ul>
+        {% for prestamo in prestamos %}
+            <li>
+                <p>  
+                    {{prestamo.prestamos_id}} - {{ prestamo.fecha_solicitud }} - {{ prestamo.fecha_devolucion }} - {{prestamo.usuario.nombre}} {{prestamo.estado.descripcion}}
+                </p>
+                <p>
+                    <a href="{% url 'prestamos:aceptar' prestamo.prestamos_id%}">Aceptar</i></a>
+                    <a href="{% url 'prestamos:cancelar' prestamo.prestamos_id%}">Cancelar</i></a>
+                </p>
+            </li>
+        {% endfor %}
+    <hr>
     <a href="{% url 'libros:index' %}">Volver</a>
 {% endblock %}

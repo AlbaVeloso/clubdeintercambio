@@ -34,12 +34,8 @@ def login(request):
                 # Guardamos el ID del usuario en la sesión para "loguearlo"
                 request.session['usuario_id'] = usuario.usuario_id
                 request.session['nombre'] = usuario.nombre
-<<<<<<< HEAD
-                
-=======
 
                 #redigir a la indes del modulo libros                
->>>>>>> 5e29155e57455849f9d9ffd20eda9e348b447acf
                 return redirect('libros:index')  # Redirige a la página principal u otra deseada
             else:
                 error = "Email o contraseña incorrectos."
@@ -47,4 +43,3 @@ def login(request):
             error = "Email o contraseña incorrectos."
     
     return render(request, 'login.html', {'error': error})
-
